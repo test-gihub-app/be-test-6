@@ -12,11 +12,13 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Generate changelog
         id: changelog
         uses: metcalfc/changelog-generator@v4.2.0
         with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
+          myToken: ${{ secrets.PAT_TOKEN }}
+
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
